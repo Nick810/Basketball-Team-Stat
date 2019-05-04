@@ -3,7 +3,6 @@ import copy
 from constants import TEAMS, PLAYERS
 
 constants_copy = copy.deepcopy(PLAYERS)
-
 clean_data = []
 
 for players in constants_copy:
@@ -73,6 +72,15 @@ def teams_options():
         except ValueError:
             print("That's not a number... Please enter a number between 1 to 3.\n")
 
+def enterToContinue():
+    while True:
+        moveOn = input("Press ENTER to continue... ")
+        if moveOn == "":
+            start()
+            break
+        elif moveOn == str or int:
+            print("You didn't press ENTER. Please press ENTER to continue\n")
+
 
 def panthers_stats():
     panthers_team = clean_data[:3] + clean_data[-3:]
@@ -91,11 +99,9 @@ def panthers_stats():
     for player in panthers_team:
         if player['experience'] == True:
             experienced_players.append(players['name'])
-
-    for player in panthers_team:
-        if player['experience'] == False:
+        else:
             inexperienced_players.append(players['name'])
-            
+
     for player in panthers_team:
         if player['height']:
             heights_list.append(player['height'])
@@ -135,9 +141,7 @@ def bandits_stats():
     for player in bandits_team:
         if player['experience'] == True:
             experienced_players.append(players['name'])
-
-    for player in bandits_team:
-        if player['experience'] == False:
+        else:
             inexperienced_players.append(players['name'])
             
     for player in bandits_team:
@@ -179,9 +183,7 @@ def warriors_stats():
     for player in warriors_team:
         if player['experience'] == True:
             experienced_players.append(players['experience'])
-
-    for player in warriors_team:
-        if player['experience'] == False:
+        else:
             inexperienced_players.append(players['experience'])
 
     for player in warriors_team:
@@ -203,17 +205,7 @@ def warriors_stats():
     print("Guardians on the Team:")
     print(', '.join(wGuardians))
     enterToContinue()
-
-
-def enterToContinue():
-    while True:
-        moveOn = input("Press ENTER to continue...")
-        if moveOn == "":
-            start()
-            break
-        elif moveOn == str or int:
-            print("You didn't press ENTER. Please press ENTER to continue\n")
-
+    
 
 if __name__ == "__main__":
     start()
