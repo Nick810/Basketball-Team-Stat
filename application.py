@@ -3,6 +3,7 @@ import copy
 from constants import TEAMS, PLAYERS
 
 constants_copy = copy.deepcopy(PLAYERS)
+
 clean_data = []
 
 for players in constants_copy:
