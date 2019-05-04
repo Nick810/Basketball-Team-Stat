@@ -23,12 +23,12 @@ def start():
                     print("That's not a valid option. Please enter a number either 1 or 2.\n")
                 elif menu_choice == 1:
                     teams_options()
+                    break
                 elif menu_choice == 2:
                     break
             except ValueError:
                 print("That's not a number... Please enter a number either 1 or 2.\n")
-            break
-
+            
 
 def teams_options():
     while True:
@@ -49,7 +49,7 @@ def teams_options():
             else:
                 print("That's not a valid option. Please enter a number between 1 to 3.\n")
         except ValueError:
-            print("That's not a number... Please enter a number either 1 or 2.\n")
+            print("That's not a number... Please enter a number between 1 to 3.\n")
 
 
 def panthers_stats():
