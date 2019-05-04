@@ -193,7 +193,7 @@ def warriors_stats():
     for player in warriors_team:
         wGuardians.append(' '.join(player['guardians']))
         
-    print("\nTeam: {} Stats".format(TEAMS[0]))
+    print("\nTeam: {} Stats".format(TEAMS[2]))
     print("-"*20)
     print("Total players {}\n".format(len(warriors_players)))
     print("Total number of experienced players: {}".format(len(experienced_players)))
