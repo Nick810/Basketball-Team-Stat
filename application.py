@@ -1,6 +1,25 @@
 import os
 from constants import TEAMS, PLAYERS
 
+clean_data = []
+
+for players in PLAYERS:
+    if players['experience'] == 'NO':
+        players['experience'] = False
+        players['guardians'] = players['guardians'].split()
+        players['height'] = players['height'].split()
+        del players['height'][1]
+        players['height'] = (sum(list(map(int, players['height']))))
+        clean_data.append(players)
+
+for players in PLAYERS:
+    if players['experience'] == 'YES':
+        players['experience'] = True
+        players['guardians'] = players['guardians'].split()
+        players['height'] = players['height'].split()
+        del players['height'][1]
+        players['height'] = (sum(list(map(int, players['height']))))
+        clean_data.append(players)
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
