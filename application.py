@@ -1,9 +1,11 @@
 import os
+import copy
 from constants import TEAMS, PLAYERS
 
+constants_copy = copy.deepcopy(PLAYERS)
 clean_data = []
 
-for players in PLAYERS:
+for players in constants_copy:
     if players['experience'] == 'NO':
         players['experience'] = False
         players['guardians'] = players['guardians'].split()
@@ -12,7 +14,7 @@ for players in PLAYERS:
         players['height'] = (sum(list(map(int, players['height']))))
         clean_data.append(players)
 
-for players in PLAYERS:
+for players in constants_copy:
     if players['experience'] == 'YES':
         players['experience'] = True
         players['guardians'] = players['guardians'].split()
@@ -83,24 +85,25 @@ def panthers_stats():
         if player['name']:
             panthers_players.append(player['name'])
         
-    pPlayers = ", ".join(panther_players)
+    pPlayers = ", ".join(panthers_players)
 
-    for player in panthers_players:
+    for player in panthers_team:
         if player['experience'] == True:
-            experienced_players.append(players['experience'])
+            experienced_players.append(players['name'])
 
-    for player in panthers_players:
+    for player in panthers_team:
         if player['experience'] == False:
-            inexperienced_players.append(players['experience'])
-
-    for player in panthers_players:
-        heights_list.append(player['height'])
-
+            inexperienced_players.append(players['name'])
+            
+    for player in panthers_team:
+        if player['height']:
+            heights_list.append(player['height'])
+            
     total_height = sum(heights_list)
     average_height = int(total_height / len(panthers_players))
     
-    for player in panthers_players:
-        pGuardians.append(' '.join(player[guardians]))
+    for player in panthers_team:
+        pGuardians.append(' '.join(player['guardians']))
         
     print("\nTeam: {} Stats".format(TEAMS[0]))
     print("-"*20)
@@ -110,7 +113,7 @@ def panthers_stats():
     print("The average height of the team: {}\n".format(average_height))
     print("Players on Team:\n  {}\n".format(pPlayers))
     print("Guardians on the Team:")
-    print(', '.join(pGuardians))
+    print('  ', ', '.join(pGuardians))
     enterToContinue()
 
 
@@ -124,36 +127,37 @@ def bandits_stats():
 
     for player in bandits_team:
         if player['name']:
-            bandit_players.append(player['name'])
+            bandits_players.append(player['name'])
         
     bPlayers = ", ".join(bandits_players)
 
-    for player in bandits_players:
+    for player in bandits_team:
         if player['experience'] == True:
-            experienced_players.append(players['experience'])
+            experienced_players.append(players['name'])
 
-    for player in bandits_players:
+    for player in bandits_team:
         if player['experience'] == False:
-            inexperienced_players.append(players['experience'])
-
-    for player in bandits_players:
-        heights_list.append(player['height'])
-
+            inexperienced_players.append(players['name'])
+            
+    for player in bandits_team:
+        if player['height']:
+            heights_list.append(player['height'])
+            
     total_height = sum(heights_list)
     average_height = int(total_height / len(bandits_players))
     
-    for player in bandits_teams:
+    for player in bandits_team:
         bGuardians.append(' '.join(player['guardians']))
         
-    print("\nTeam: {} Stats".format(TEAMS[0]))
+    print("\nTeam: {} Stats".format(TEAMS[1]))
     print("-"*20)
     print("Total players {}\n".format(len(bandits_players)))
     print("Total number of experienced players: {}".format(len(experienced_players)))
     print("Total number of inexperienced players: {}".format(len(inexperienced_players)))
     print("The average height of the team: {}\n".format(average_height))
-    print("Players on Team:\n  {}\n".format(pPlayers))
+    print("Players on Team:\n  {}\n".format(bPlayers))
     print("Guardians on the Team:")
-    print(', '.join(bGuardians))
+    print('  ', ', '.join(bGuardians))
     enterToContinue()
 
 
@@ -169,7 +173,7 @@ def warriors_stats():
         if player['name']:
             warriors_players.append(player['name'])
         
-    bPlayers = ", ".join(warriors_players)
+    wPlayers = ", ".join(warriors_players)
 
     for player in warriors_team:
         if player['experience'] == True:
@@ -183,9 +187,9 @@ def warriors_stats():
         heights_list.append(player['height'])
 
     total_height = sum(heights_list)
-    average_height = int(total_height / len(warriors_players))
+    average_height = int((total_height / len(warriors_players)))
     
-    for player in warriors_players:
+    for player in warriors_team:
         wGuardians.append(' '.join(player['guardians']))
         
     print("\nTeam: {} Stats".format(TEAMS[0]))
@@ -194,7 +198,7 @@ def warriors_stats():
     print("Total number of experienced players: {}".format(len(experienced_players)))
     print("Total number of inexperienced players: {}".format(len(inexperienced_players)))
     print("The average height of the team: {}\n".format(average_height))
-    print("Players on Team:\n  {}\n".format(wPlayers))
+    print("Players on Team:\n {}\n".format(wPlayers))
     print("Guardians on the Team:")
     print(', '.join(wGuardians))
     enterToContinue()
