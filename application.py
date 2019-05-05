@@ -8,7 +8,7 @@ clean_data = []
 for players in constants_copy:
     if players['experience'] == 'NO':
         players['experience'] = False
-        players['guardians'] = players['guardians'].split()
+        players['guardians'] = players['guardians'].split(' and ')
         players['height'] = players['height'].split()
         del players['height'][1]
         players['height'] = int(' '.join(players['height']))
@@ -17,7 +17,7 @@ for players in constants_copy:
 for players in constants_copy:
     if players['experience'] == 'YES':
         players['experience'] = True
-        players['guardians'] = players['guardians'].split()
+        players['guardians'] = players['guardians'].split(' and ')
         players['height'] = players['height'].split()
         del players['height'][1]
         players['height'] = int(' '.join(players['height']))
