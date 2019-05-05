@@ -13,9 +13,7 @@ for players in constants_copy:
         del players['height'][1]
         players['height'] = int(' '.join(players['height']))
         clean_data.append(players)
-
-for players in constants_copy:
-    if players['experience'] == 'YES':
+    else:
         players['experience'] = True
         players['guardians'] = players['guardians'].split(' and ')
         players['height'] = players['height'].split()
@@ -85,7 +83,7 @@ def enterToContinue():
 
 
 def panthers_stats():
-    panthers_team = clean_data[:3] + clean_data[-3:]
+    panthers_team = clean_data[2:8]
     experienced_players = []
     inexperienced_players = []
     heights_list = []
@@ -117,7 +115,7 @@ def panthers_stats():
 
 
 def bandits_stats():
-    bandits_team = clean_data[3:6:] + clean_data[12:15:]
+    bandits_team = clean_data[8:12] + clean_data[0:2]
     experienced_players = []
     inexperienced_players = []
     heights_list = []
@@ -149,7 +147,7 @@ def bandits_stats():
 
 
 def warriors_stats():
-    warriors_team = clean_data[6:9:] + clean_data[9:12:]
+    warriors_team = clean_data[-6:]
     experienced_players = []
     inexperienced_players = []
     heights_list = []
