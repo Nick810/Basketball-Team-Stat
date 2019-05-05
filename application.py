@@ -103,7 +103,7 @@ def panthers_stats():
 
     average_height = round(sum(heights_list) / len(panthers_team))
 
-    pGuardians = ', '.join([' '.join(player['guardians']) for player in panthers_team])
+    pGuardians = ', '.join([' and '.join(player['guardians']) for player in panthers_team])
 
     print("\nTeam: {} Stats".format(TEAMS[0]))
     print("-"*20)
@@ -135,7 +135,7 @@ def bandits_stats():
 
     average_height = round(sum(heights_list) / len(bandits_team))
 
-    bGuardians = ', '.join([' '.join(player['guardians']) for player in bandits_team])
+    bGuardians = ', '.join([' and '.join(player['guardians']) for player in bandits_team])
 
     print("\nTeam: {} Stats".format(TEAMS[1]))
     print("-"*20)
@@ -167,7 +167,7 @@ def warriors_stats():
 
     average_height = round(sum(heights_list) / len(warriors_team))
 
-    wGuardians = ', '.join([' '.join(player['guardians']) for player in warriors_team])
+    wGuardians = ', '.join([' and '.join(player['guardians']) for player in warriors_team])
 
     print("\nTeam: {} Stats".format(TEAMS[2]))
     print("-"*20)
