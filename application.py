@@ -11,7 +11,7 @@ for players in constants_copy:
         players['guardians'] = players['guardians'].split()
         players['height'] = players['height'].split()
         del players['height'][1]
-        players['height'] = (sum(list(map(int, players['height']))))
+        players['height'] = int(' '.join(players['height']))
         clean_data.append(players)
 
 for players in constants_copy:
@@ -20,7 +20,7 @@ for players in constants_copy:
         players['guardians'] = players['guardians'].split()
         players['height'] = players['height'].split()
         del players['height'][1]
-        players['height'] = (sum(list(map(int, players['height']))))
+        players['height'] = int(' '.join(players['height']))
         clean_data.append(players)
 
 
