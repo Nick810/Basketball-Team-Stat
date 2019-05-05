@@ -42,14 +42,14 @@ def start():
 
                 menu_choice = int(input("Enter an option > "))
                 if menu_choice <= 0 or menu_choice >= 3:
-                    print("That's not a valid option. Please enter a number either 1 or 2.\n")
+                    print("Oops! Please enter a number either 1 or 2.\n")
                 elif menu_choice == 1:
                     teams_options()
                     break
                 elif menu_choice == 2:
                     break
             except ValueError:
-                print("That's not a number... Please enter a number either 1 or 2.\n")
+                print("That's not a number... Try again.\n")
 
 
 def teams_options():
@@ -69,9 +69,9 @@ def teams_options():
                 warriors_stats()
                 break
             else:
-                print("That's not a valid option. Please enter a number between 1 to 3.\n")
+                print("Oops! Please enter a number between 1 to 3.\n")
         except ValueError:
-            print("That's not a number... Please enter a number between 1 to 3.\n")
+            print("That's not a number... Try again.\n")
 
 
 def enterToContinue():
@@ -108,8 +108,8 @@ def panthers_stats():
     print("\nTeam: {} Stats".format(TEAMS[0]))
     print("-"*20)
     print("Total players {}\n".format(len(panthers_team)))
-    print("Total number of experienced players: {}".format(len(experienced_players)))
-    print("Total number of inexperienced players: {}".format(len(inexperienced_players)))
+    print("Experienced players: {}".format(len(experienced_players)))
+    print("Inexperienced players: {}".format(len(inexperienced_players)))
     print("The average height of the team: {}\n".format(average_height))
     print("Players on Team:\n  {}\n".format(pPlayers))
     print("Guardians on the Team:\n {}\n".format(pGuardians))
@@ -140,8 +140,8 @@ def bandits_stats():
     print("\nTeam: {} Stats".format(TEAMS[1]))
     print("-"*20)
     print("Total players {}\n".format(len(bandits_team)))
-    print("Total number of experienced players: {}".format(len(experienced_players)))
-    print("Total number of inexperienced players: {}".format(len(inexperienced_players)))
+    print("Experienced players: {}".format(len(experienced_players)))
+    print("Inexperienced players: {}".format(len(inexperienced_players)))
     print("The average height of the team: {}\n".format(average_height))
     print("Players on Team:\n  {}\n".format(bPlayers))
     print("Guardians on the Team:\n  {}\n".format(bGuardians))
@@ -172,8 +172,8 @@ def warriors_stats():
     print("\nTeam: {} Stats".format(TEAMS[2]))
     print("-"*20)
     print("Total players {}\n".format(len(warriors_team)))
-    print("Total number of experienced players: {}".format(len(experienced_players)))
-    print("Total number of inexperienced players: {}".format(len(inexperienced_players)))
+    print("Experienced players: {}".format(len(experienced_players)))
+    print("Inexperienced players: {}".format(len(inexperienced_players)))
     print("The average height of the team: {}\n".format(average_height))
     print("Players on Team:\n {}\n".format(wPlayers))
     print("Guardians on the Team:\n  {}\n".format(wGuardians))
